@@ -19,7 +19,7 @@ print(alto.extract_words())
 
 ## Installation
 
-**Stable Release:** `pip install alto`<br>
+**Stable Release:** `pip install alto_xml`<br>
 **Development Head:** `pip install git+https://github.com/envinorma/alto.git`
 
 ## Documentation

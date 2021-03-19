@@ -1,0 +1,18 @@
+alto package
+============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   alto.bin
+
+Module contents
+---------------
+
+.. automodule:: alto
+   :members:
+   :undoc-members:
+   :show-inheritance:

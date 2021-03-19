@@ -1,0 +1,10 @@
+alto.bin package
+================
+
+Module contents
+---------------
+
+.. automodule:: alto.bin
+   :members:
+   :undoc-members:
+   :show-inheritance:

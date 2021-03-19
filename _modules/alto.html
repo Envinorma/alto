@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>alto &mdash; Alto 0.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Alto
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#stable-release">Stable release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#from-sources">From sources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Package modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../alto.html">alto package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alto.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../alto.bin.html">alto.bin package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../alto.html#module-alto">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#deploying">Deploying</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Alto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>alto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for alto</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;Top-level package for Alto.&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Rémi Delbouys&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;remi.delbouys@laposte.net&quot;</span>
+<span class="c1"># Do not edit this string manually, always use bumpversion</span>
+<span class="c1"># Details in CONTRIBUTING.md</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.0.0&quot;</span>
+
+
+<div class="viewcode-block" id="get_module_version"><a class="viewcode-back" href="../alto.html#alto.get_module_version">[docs]</a><span class="k">def</span> <span class="nf">get_module_version</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">__version__</span></div>
+
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
+<span class="kn">from</span> <span class="nn">xml.etree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+<span class="kn">from</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">import</span> <span class="n">Element</span>
+
+<span class="n">_MAX_PRINT_CHILDREN</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">_Namespace</span> <span class="o">=</span> <span class="s2">&quot;{http://www.loc.gov/standards/alto/ns-v3#}&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">_Tags</span><span class="p">:</span>
+    <span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">Description&quot;</span>
+    <span class="n">LAYOUT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">Layout&quot;</span>
+    <span class="n">PAGE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">Page&quot;</span>
+    <span class="n">TEXT_BLOCK</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">TextBlock&quot;</span>
+    <span class="n">TEXT_LINE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">TextLine&quot;</span>
+    <span class="n">String</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">String&quot;</span>
+    <span class="n">SP</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">SP&quot;</span>
+    <span class="n">SOURCE_IMAGE_INFORMATION</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">sourceImageInformation&quot;</span>
+    <span class="n">COMPOSED_BLOCK</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">ComposedBlock&quot;</span>
+    <span class="n">PRINTSPACE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">PrintSpace&quot;</span>
+    <span class="n">FILENAME</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_Namespace</span><span class="si">}</span><span class="s2">fileName&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">_Attrs</span><span class="p">:</span>
+    <span class="n">ID</span> <span class="o">=</span> <span class="s2">&quot;ID&quot;</span>
+    <span class="n">HEIGHT</span> <span class="o">=</span> <span class="s2">&quot;HEIGHT&quot;</span>
+    <span class="n">WIDTH</span> <span class="o">=</span> <span class="s2">&quot;WIDTH&quot;</span>
+    <span class="n">HPOS</span> <span class="o">=</span> <span class="s2">&quot;HPOS&quot;</span>
+    <span class="n">VPOS</span> <span class="o">=</span> <span class="s2">&quot;VPOS&quot;</span>
+    <span class="n">FONTSIZE</span> <span class="o">=</span> <span class="s2">&quot;FONTSIZE&quot;</span>
+    <span class="n">CONTENT</span> <span class="o">=</span> <span class="s2">&quot;CONTENT&quot;</span>
+    <span class="n">WC</span> <span class="o">=</span> <span class="s2">&quot;WC&quot;</span>
+    <span class="n">PC</span> <span class="o">=</span> <span class="s2">&quot;PC&quot;</span>
+    <span class="n">PHYSICAL_IMG_NR</span> <span class="o">=</span> <span class="s2">&quot;PHYSICAL_IMG_NR&quot;</span>
+    <span class="n">PRINTED_IMG_NR</span> <span class="o">=</span> <span class="s2">&quot;PRINTED_IMG_NR&quot;</span>
+    <span class="n">FONTSIZE</span> <span class="o">=</span> <span class="s2">&quot;FONTSIZE&quot;</span>
+
+
+<span class="n">T2</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="n">candidate</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">type_</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">T2</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T2</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span> <span class="n">type_</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expecting type </span><span class="si">{</span><span class="n">type_</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">candidate</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">candidate</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_str</span><span class="p">(</span><span class="n">candidate</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_check_type</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_extract_unique_child_name_to_child</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Element</span><span class="p">]:</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Element</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">tag</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Non unique child tag name: </span><span class="si">{</span><span class="n">child</span><span class="si">}</span><span class="s2"> in element </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">child</span><span class="o">.</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">child</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">_get_tag</span><span class="p">(</span><span class="n">element_tag_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">children</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Element</span><span class="p">],</span> <span class="n">tag_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Element</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tag_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Error when parsing XML: expecting tag </span><span class="si">{</span><span class="n">element_tag_name</span><span class="si">}</span><span class="s2"> to have child </span><span class="si">{</span><span class="n">tag_name</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Available children: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">children</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="n">_MAX_PRINT_CHILDREN</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">children</span><span class="p">[</span><span class="n">tag_name</span><span class="p">]</span>
+
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">type_</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Dict</span><span class="p">,</span> <span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">attr_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Error when parsing XML: expecting tag </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="si">}</span><span class="s2"> to have attribute </span><span class="si">{</span><span class="n">attr_name</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Available attributes: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">())[:</span><span class="n">_MAX_PRINT_CHILDREN</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">type_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>  <span class="c1"># type: ignore</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Error when parsing XML: expecting tag attribute </span><span class="si">{</span><span class="n">attr_name</span><span class="si">}</span><span class="s2"> of tag </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;to have type </span><span class="si">{</span><span class="n">type_</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_name_is</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">expected</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="n">expected</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error when parsing XML: Expecting tag name </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">, got tag name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Description"><a class="viewcode-back" href="../alto.html#alto.Description">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Description</span><span class="p">:</span>
+    <span class="n">file_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Description.from_xml"><a class="viewcode-back" href="../alto.html#alto.Description.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Description&quot;</span><span class="p">:</span>
+        <span class="n">children</span> <span class="o">=</span> <span class="n">_extract_unique_child_name_to_child</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="n">_get_tag</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">children</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">SOURCE_IMAGE_INFORMATION</span><span class="p">)</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">_get_tag</span><span class="p">(</span><span class="n">source</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">_extract_unique_child_name_to_child</span><span class="p">(</span><span class="n">source</span><span class="p">),</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">FILENAME</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">file_name</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Alternative"><a class="viewcode-back" href="../alto.html#alto.Alternative">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Alternative</span><span class="p">:</span>
+    <span class="n">content</span><span class="p">:</span> <span class="nb">str</span>
+
+<div class="viewcode-block" id="Alternative.from_xml"><a class="viewcode-back" href="../alto.html#alto.Alternative.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Alternative&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">_assert_str</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="String"><a class="viewcode-back" href="../alto.html#alto.String">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">String</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">hpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">vpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">content</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">confidence</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">alternatives</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Alternative</span><span class="p">]</span>
+
+<div class="viewcode-block" id="String.from_xml"><a class="viewcode-back" href="../alto.html#alto.String.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;String&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WIDTH</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">hpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">vpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">VPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">content</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">CONTENT</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+            <span class="n">confidence</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WC</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">alternatives</span><span class="o">=</span><span class="p">[</span><span class="n">Alternative</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">],</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SP"><a class="viewcode-back" href="../alto.html#alto.SP">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">SP</span><span class="p">:</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">hpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">vpos</span><span class="p">:</span> <span class="nb">float</span>
+
+<div class="viewcode-block" id="SP.from_xml"><a class="viewcode-back" href="../alto.html#alto.SP.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;SP&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WIDTH</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">hpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">vpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">VPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+        <span class="p">)</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_load_string_or_sp</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">String</span><span class="p">,</span> <span class="n">SP</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">String</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">SP</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">SP</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in when parsing XML: expecting tag </span><span class="si">{</span><span class="n">_Tags</span><span class="o">.</span><span class="n">String</span><span class="si">}</span><span class="s2"> or </span><span class="si">{</span><span class="n">_Tags</span><span class="o">.</span><span class="n">SP</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="TextLine"><a class="viewcode-back" href="../alto.html#alto.TextLine">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">TextLine</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">hpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">vpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">strings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">String</span><span class="p">,</span> <span class="n">SP</span><span class="p">]]</span>
+
+<div class="viewcode-block" id="TextLine.from_xml"><a class="viewcode-back" href="../alto.html#alto.TextLine.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextLine&quot;</span><span class="p">:</span>
+        <span class="n">_assert_name_is</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">TEXT_LINE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WIDTH</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">hpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">vpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">VPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">strings</span><span class="o">=</span><span class="p">[</span><span class="n">_load_string_or_sp</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hpos</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+                <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extract_strings</span><span class="p">()),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="TextLine.extract_strings"><a class="viewcode-back" href="../alto.html#alto.TextLine.extract_strings">[docs]</a>    <span class="k">def</span> <span class="nf">extract_strings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">str_</span><span class="o">.</span><span class="n">content</span> <span class="k">for</span> <span class="n">str_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">strings</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">str_</span><span class="p">,</span> <span class="n">String</span><span class="p">)]</span></div></div>
+
+
+<div class="viewcode-block" id="TextBlock"><a class="viewcode-back" href="../alto.html#alto.TextBlock">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">TextBlock</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">hpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">vpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">text_lines</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TextLine</span><span class="p">]</span>
+
+<div class="viewcode-block" id="TextBlock.from_xml"><a class="viewcode-back" href="../alto.html#alto.TextBlock.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TextBlock&quot;</span><span class="p">:</span>
+        <span class="n">_assert_name_is</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">TEXT_BLOCK</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WIDTH</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">hpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">vpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">VPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">text_lines</span><span class="o">=</span><span class="p">[</span><span class="n">TextLine</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TextBlock.extract_string_lines"><a class="viewcode-back" href="../alto.html#alto.TextBlock.extract_string_lines">[docs]</a>    <span class="k">def</span> <span class="nf">extract_string_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">extract_strings</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_lines</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="ComposedBlock"><a class="viewcode-back" href="../alto.html#alto.ComposedBlock">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">ComposedBlock</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">hpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">vpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">text_blocks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TextBlock</span><span class="p">]</span>
+
+<div class="viewcode-block" id="ComposedBlock.from_xml"><a class="viewcode-back" href="../alto.html#alto.ComposedBlock.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ComposedBlock&quot;</span><span class="p">:</span>
+        <span class="n">_assert_name_is</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">COMPOSED_BLOCK</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WIDTH</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">hpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">vpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">VPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+            <span class="n">text_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">TextBlock</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">],</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="PrintSpace"><a class="viewcode-back" href="../alto.html#alto.PrintSpace">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">PrintSpace</span><span class="p">:</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">hpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">vpos</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">pc</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+    <span class="n">composed_blocks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ComposedBlock</span><span class="p">]</span>
+
+<div class="viewcode-block" id="PrintSpace.from_xml"><a class="viewcode-back" href="../alto.html#alto.PrintSpace.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;PrintSpace&quot;</span><span class="p">:</span>
+        <span class="n">_assert_name_is</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">PRINTSPACE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WIDTH</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">hpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">vpos</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">VPOS</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">pc</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">PC</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="k">if</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">PC</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">attrib</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">composed_blocks</span><span class="o">=</span><span class="p">[</span><span class="n">ComposedBlock</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">],</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Page"><a class="viewcode-back" href="../alto.html#alto.Page">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Page</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">physical_img_nr</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">printed_img_nr</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="n">print_spaces</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PrintSpace</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Page.from_xml"><a class="viewcode-back" href="../alto.html#alto.Page.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Page&quot;</span><span class="p">:</span>
+        <span class="n">_assert_name_is</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">PAGE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">WIDTH</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+            <span class="n">physical_img_nr</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">PHYSICAL_IMG_NR</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span>
+            <span class="n">printed_img_nr</span><span class="o">=</span><span class="n">_get_attr</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">PRINTED_IMG_NR</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">_Attrs</span><span class="o">.</span><span class="n">PRINTED_IMG_NR</span> <span class="ow">in</span> <span class="n">element</span><span class="o">.</span><span class="n">attrib</span>
+            <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">print_spaces</span><span class="o">=</span><span class="p">[</span><span class="n">PrintSpace</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Page.extract_blocks"><a class="viewcode-back" href="../alto.html#alto.Page.extract_blocks">[docs]</a>    <span class="k">def</span> <span class="nf">extract_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">ComposedBlock</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">block</span> <span class="k">for</span> <span class="n">ps</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_spaces</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">ps</span><span class="o">.</span><span class="n">composed_blocks</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Page.extract_text_blocks"><a class="viewcode-back" href="../alto.html#alto.Page.extract_text_blocks">[docs]</a>    <span class="k">def</span> <span class="nf">extract_text_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TextBlock</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">tb</span> <span class="k">for</span> <span class="n">ps</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_spaces</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">ps</span><span class="o">.</span><span class="n">composed_blocks</span> <span class="k">for</span> <span class="n">tb</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">text_blocks</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Page.extract_strings"><a class="viewcode-back" href="../alto.html#alto.Page.extract_strings">[docs]</a>    <span class="k">def</span> <span class="nf">extract_strings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">String</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">string</span>
+            <span class="k">for</span> <span class="n">ps</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_spaces</span>
+            <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">ps</span><span class="o">.</span><span class="n">composed_blocks</span>
+            <span class="k">for</span> <span class="n">tb</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">text_blocks</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tb</span><span class="o">.</span><span class="n">text_lines</span>
+            <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strings</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span>
+        <span class="p">]</span></div>
+
+<div class="viewcode-block" id="Page.extract_lines"><a class="viewcode-back" href="../alto.html#alto.Page.extract_lines">[docs]</a>    <span class="k">def</span> <span class="nf">extract_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">TextLine</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">line</span>
+            <span class="k">for</span> <span class="n">ps</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_spaces</span>
+            <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">ps</span><span class="o">.</span><span class="n">composed_blocks</span>
+            <span class="k">for</span> <span class="n">tb</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">text_blocks</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tb</span><span class="o">.</span><span class="n">text_lines</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Layout"><a class="viewcode-back" href="../alto.html#alto.Layout">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Layout</span><span class="p">:</span>
+    <span class="n">pages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Page</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Layout.from_xml"><a class="viewcode-back" href="../alto.html#alto.Layout.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Layout&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">pages</span><span class="o">=</span><span class="p">[</span><span class="n">Page</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">])</span></div></div>
+
+
+<div class="viewcode-block" id="Alto"><a class="viewcode-back" href="../alto.html#alto.Alto">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Alto</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Alto dataclass for manipulating Tesseract output files.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    description: Description</span>
+<span class="sd">        The &quot;description&quot; tag of alto xml documents, containing metadata</span>
+<span class="sd">    layout: Layout</span>
+<span class="sd">        The &quot;layout&quot; tag of alto xml documents, containing parsed elements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">description</span><span class="p">:</span> <span class="n">Description</span>
+    <span class="n">layout</span><span class="p">:</span> <span class="n">Layout</span>
+
+<div class="viewcode-block" id="Alto.from_xml"><a class="viewcode-back" href="../alto.html#alto.Alto.from_xml">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">element</span><span class="p">:</span> <span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Alto&quot;</span><span class="p">:</span>
+        <span class="n">children</span> <span class="o">=</span> <span class="n">_extract_unique_child_name_to_child</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">Description</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">_get_tag</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">children</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">DESCRIPTION</span><span class="p">)),</span>
+            <span class="n">layout</span><span class="o">=</span><span class="n">Layout</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">_get_tag</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">tag</span><span class="p">,</span> <span class="n">children</span><span class="p">,</span> <span class="n">_Tags</span><span class="o">.</span><span class="n">LAYOUT</span><span class="p">)),</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Alto.parse_file"><a class="viewcode-back" href="../alto.html#alto.Alto.parse_file">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Alto&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alto constructor from xml file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename: str</span>
+<span class="sd">            filename of the file to load</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Alto</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Alto.parse"><a class="viewcode-back" href="../alto.html#alto.Alto.parse">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">xml_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Alto&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Alto constructor from xml string.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        xml_str: str</span>
+<span class="sd">            xml alto string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ElementTree</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">xml_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Alto</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Alto.extract_words"><a class="viewcode-back" href="../alto.html#alto.Alto.extract_words">[docs]</a>    <span class="k">def</span> <span class="nf">extract_words</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extracts all parsed words from alto objects regardless of their positions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        xml_str: str</span>
+<span class="sd">            xml alto string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">string</span><span class="o">.</span><span class="n">content</span>
+            <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">pages</span>
+            <span class="k">for</span> <span class="n">ps</span> <span class="ow">in</span> <span class="n">page</span><span class="o">.</span><span class="n">print_spaces</span>
+            <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">ps</span><span class="o">.</span><span class="n">composed_blocks</span>
+            <span class="k">for</span> <span class="n">tb</span> <span class="ow">in</span> <span class="n">block</span><span class="o">.</span><span class="n">text_blocks</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tb</span><span class="o">.</span><span class="n">text_lines</span>
+            <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strings</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span>
+        <span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="parse_file"><a class="viewcode-back" href="../alto.html#alto.parse_file">[docs]</a><span class="k">def</span> <span class="nf">parse_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Alto</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Alto constructor from xml file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename: str</span>
+<span class="sd">        filename of the file to load</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Alto</span><span class="o">.</span><span class="n">parse_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="parse"><a class="viewcode-back" href="../alto.html#alto.parse">[docs]</a><span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">xml_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Alto</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Alto constructor from xml string.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xml_str: str</span>
+<span class="sd">        xml alto string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Alto</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xml_string</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rémi Delbouys.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

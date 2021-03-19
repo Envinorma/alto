@@ -28,6 +28,6 @@ For full package documentation please visit [envinorma.github.io/alto](https://e
 
 ## Development
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for information related to developing the code.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information related to development.
 
 **MIT license**

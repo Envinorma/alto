@@ -15,10 +15,7 @@ read the file once then use the loaded content.
 Docs: https://docs.pytest.org/en/latest/example/simple.html
       https://docs.pytest.org/en/latest/plugins.html#requiring-loading-plugins-in-a-test-module-or-conftest-file
 """
-
-import json
 from pathlib import Path
-from typing import Dict
 
 import pytest
 
@@ -32,6 +29,6 @@ def data_dir() -> Path:
 # expose them. If we had multiple tests that wanted to use the contents of this file,
 # we could simply add "loaded_example_values" as a parameter for each test.
 @pytest.fixture
-def loaded_example_values(data_dir) -> Dict[str, int]:
-    with open(data_dir / "example_values.json", "r") as read_in:
-        return json.load(read_in)
+def real_life_example(data_dir) -> str:
+    with open(data_dir / "alto_example.xml", "r") as read_in:
+        return read_in.read()

@@ -1,35 +1,30 @@
 # Alto
 
-[![Build Status](https://github.com/remidbs/alto/workflows/Build%20Main/badge.svg)](https://github.com/remidbs/alto/actions)
-[![Documentation](https://github.com/remidbs/alto/workflows/Documentation/badge.svg)](https://remidbs.github.io/alto/)
+[![Build Status](https://github.com/envinorma/alto/workflows/Build%20Main/badge.svg)](https://github.com/envinorma/alto/actions)
+[![Documentation](https://github.com/envinorma/alto/workflows/Documentation/badge.svg)](https://envinorma.github.io/alto/)
 [![Code Coverage](https://codecov.io/gh/remidbs/alto/branch/main/graph/badge.svg)](https://codecov.io/gh/remidbs/alto)
 
 A Python parser for alto XML files, for handling OCR outputs
 
 ---
 
-## Features
-
--   Store values and retain the prior value in memory
--   ... some other functionality
-
-## Quick Start
+## Example usage
 
 ```python
-from alto import Example
+from alto import parse_file
 
-a = Example()
-a.get_value()  # 10
+alto = parse_file('path/to/alto/file.xml')
+print(alto.extract_words())
 ```
 
 ## Installation
 
 **Stable Release:** `pip install alto`<br>
-**Development Head:** `pip install git+https://github.com/remidbs/alto.git`
+**Development Head:** `pip install git+https://github.com/envinorma/alto.git`
 
 ## Documentation
 
-For full package documentation please visit [remidbs.github.io/alto](https://remidbs.github.io/alto).
+For full package documentation please visit [envinorma.github.io/alto](https://envinorma.github.io/alto).
 
 ## Development
 
@@ -99,6 +94,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for information related to developing the
    each set of changes to `main` atomic and as a side effect naturally encourages small
    well defined PR's.
 
-
 **MIT license**
-

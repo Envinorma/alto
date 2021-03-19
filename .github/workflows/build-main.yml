@@ -30,7 +30,7 @@ jobs:
         pip install .[test]
     - name: Test with pytest
       run: |
-        pytest --cov-report xml --cov=alto alto/tests/
+        pytest --cov-report xml --cov=alto alto/tests/ --ignore=setup.py
     - name: Upload codecov
       uses: codecov/codecov-action@v1
 
@@ -52,7 +52,10 @@ jobs:
         flake8 alto --count --verbose --show-source --statistics
     - name: Check with black
       run: |
-        black --check alto
+        black --check -S -l 120 alto
+    - name: Check imports are sorted
+      run: |
+        isort alto --profile black -l 120 --check
 
   publish:
     if: "contains(github.event.head_commit.message, 'Bump version')"

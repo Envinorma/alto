@@ -20,6 +20,7 @@ test_requirements = [
     "pytest>=5.4.3",
     "pytest-cov>=2.9.0",
     "pytest-raises>=0.11",
+    "isort>=5.7.0",
 ]
 
 dev_requirements = [
@@ -46,7 +47,7 @@ extra_requirements = {
     "all": [
         *requirements,
         *dev_requirements,
-    ]
+    ],
 }
 
 setup(
@@ -63,9 +64,7 @@ setup(
     ],
     description="A Python parser for alto XML files, for handling OCR outputs",
     entry_points={
-        "console_scripts": [
-            "my_example=alto.bin.my_example:main"
-        ],
+        "console_scripts": ["my_example=alto.bin.my_example:main"],
     },
     install_requires=requirements,
     license="MIT license",
@@ -80,7 +79,7 @@ setup(
     test_suite="alto/tests",
     tests_require=test_requirements,
     extras_require=extra_requirements,
-    url="https://github.com/remidbs/alto",
+    url="https://github.com/envinorma/alto",
     # Do not edit this string manually, always use bumpversion
     # Details in CONTRIBUTING.rst
     version="0.0.0",

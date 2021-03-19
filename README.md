@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/envinorma/alto/workflows/Build%20Main/badge.svg)](https://github.com/envinorma/alto/actions)
 [![Documentation](https://github.com/envinorma/alto/workflows/Documentation/badge.svg)](https://envinorma.github.io/alto/)
-[![Code Coverage](https://codecov.io/gh/remidbs/alto/branch/main/graph/badge.svg)](https://codecov.io/gh/remidbs/alto)
+[![Code Coverage](https://codecov.io/gh/envinorma/alto/branch/main/graph/badge.svg)](https://codecov.io/gh/envinorma/alto)
 
 A Python parser for alto XML files, for handling OCR outputs
 

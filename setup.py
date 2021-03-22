@@ -63,9 +63,6 @@ setup(
         "Programming Language :: Python :: 3.9",
     ],
     description="A Python parser for alto XML files, for handling OCR outputs",
-    entry_points={
-        "console_scripts": ["my_example=alto.bin.my_example:main"],
-    },
     install_requires=requirements,
     license="MIT license",
     long_description=readme,

@@ -81,6 +81,6 @@ setup(
     url="https://github.com/envinorma/alto",
     # Do not edit this string manually, always use bumpversion
     # Details in CONTRIBUTING.rst
-    version="0.0.4",
+    version="0.0.5",
     zip_safe=False,
 )

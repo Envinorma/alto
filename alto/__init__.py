@@ -18,6 +18,8 @@ from typing import Any, Dict, List, Optional, Type, TypeVar, Union, cast
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
+from typing_extensions import Literal  # for python3.7 compatibility
+
 _MAX_PRINT_CHILDREN = 50
 _Namespace = "{http://www.loc.gov/standards/alto/ns-v3#}"
 
@@ -52,6 +54,7 @@ class _Attrs:
 
 
 T2 = TypeVar("T2")
+GroupLevel = Union[Literal['TextLine'], Literal['TextBlock'], Literal['ComposedBlock']]
 
 
 def _check_type(candidate: Any, type_: Type[T2]) -> T2:
@@ -205,11 +208,19 @@ class TextLine:
                 self.width,
                 self.hpos,
                 self.height,
-                tuple(self.extract_strings()),
+                tuple(self.extract_words()),
             )
         )
 
-    def extract_strings(self) -> List[str]:
+    def extract_words(self) -> List[str]:
+        """
+        Extracts all parsed words regardless of their positions.
+
+
+        Returns:
+            List[str]: List of words extracted from file
+        """
+
         return [str_.content for str_ in self.strings if isinstance(str_, String)]
 
 
@@ -235,7 +246,18 @@ class TextBlock:
         )
 
     def extract_string_lines(self) -> List[str]:
-        return [" ".join(line.extract_strings()) for line in self.text_lines]
+        return [" ".join(line.extract_words()) for line in self.text_lines]
+
+    def extract_words(self) -> List[str]:
+        """
+        Extracts all parsed words regardless of their positions.
+
+
+        Returns:
+            List[str]: List of words extracted from file
+        """
+
+        return [str_ for line in self.text_lines for str_ in line.extract_words()]
 
 
 @dataclass
@@ -259,6 +281,17 @@ class ComposedBlock:
             text_blocks=[TextBlock.from_xml(child) for child in element],
         )
 
+    def extract_words(self) -> List[str]:
+        """
+        Extracts all parsed words regardless of their positions.
+
+
+        Returns:
+            List[str]: List of words extracted from file
+        """
+
+        return [str_ for block in self.text_blocks for str_ in block.extract_words()]
+
 
 @dataclass
 class PrintSpace:
@@ -280,6 +313,17 @@ class PrintSpace:
             pc=_get_attr(element, _Attrs.PC, float) if _Attrs.PC in element.attrib else None,
             composed_blocks=[ComposedBlock.from_xml(child) for child in element],
         )
+
+    def extract_words(self) -> List[str]:
+        """
+        Extracts all parsed words regardless of their positions.
+
+
+        Returns:
+            List[str]: List of words extracted from file
+        """
+
+        return [str_ for block in self.composed_blocks for str_ in block.extract_words()]
 
 
 @dataclass
@@ -330,6 +374,17 @@ class Page:
             for tb in block.text_blocks
             for line in tb.text_lines
         ]
+
+    def extract_words(self) -> List[str]:
+        """
+        Extracts all parsed words regardless of their positions.
+
+
+        Returns:
+            List[str]: List of words extracted from file
+        """
+
+        return [str_ for ps in self.print_spaces for str_ in ps.extract_words()]
 
 
 @dataclass
@@ -394,12 +449,11 @@ class Alto:
 
     def extract_words(self) -> List[str]:
         """
-        Extracts all parsed words from alto objects regardless of their positions.
+        Extracts all parsed words regardless of their positions.
 
-        Parameters
-        ----------
-        xml_str: str
-            xml alto string
+
+        Returns:
+            List[str]: List of words extracted from file
         """
 
         return [
@@ -412,6 +466,35 @@ class Alto:
             for string in line.strings
             if isinstance(string, String)
         ]
+
+    def extract_composed_blocks(self) -> List[ComposedBlock]:
+        return [block for page in self.layout.pages for ps in page.print_spaces for block in ps.composed_blocks]
+
+    def extract_text_blocks(self) -> List[TextBlock]:
+        return [tb for block in self.extract_composed_blocks() for tb in block.text_blocks]
+
+    def extract_text_lines(self) -> List[TextLine]:
+        return [line for block in self.extract_text_blocks() for line in block.text_lines]
+
+    def extract_grouped_words(self, group_by: GroupLevel) -> List[List[str]]:
+        """Extracts all parsed words grouped at the required level.
+
+        Args:
+            group_by (Union[Literal['TextLine'], Literal['TextBlock'], Literal['ComposedBlock']]) : group level
+
+        Returns:
+            List[List[str]]: List of list of words in each entity of target level
+        """
+        groups: Union[List[ComposedBlock], List[TextBlock], List[TextLine]]
+        if group_by == 'ComposedBlock':
+            groups = self.extract_composed_blocks()
+        elif group_by == 'TextBlock':
+            groups = self.extract_text_blocks()
+        elif group_by == 'TextLine':
+            groups = self.extract_text_lines()
+        else:
+            raise NotImplementedError(f'Not implemented for value {group_by}')
+        return [[word for word in group.extract_words()] for group in groups]
 
 
 def parse_file(filename: str) -> Alto:

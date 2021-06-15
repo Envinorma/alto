@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from typing import List, Union
 from xml.etree import ElementTree
 
 import pytest
@@ -35,6 +36,25 @@ namespaces = (
 
 def _build_xml(xml_str: str) -> ElementTree.Element:
     return ElementTree.fromstring(f"{namespaces}{xml_str}</alto>")[0]
+
+
+def _string(word: str = 'abc') -> String:
+    return String(
+        id="string_3", hpos=712, vpos=133, width=55, height=13, confidence=0.92, content=word, alternatives=[]
+    )
+
+
+def _text_line() -> TextLine:
+    strings: List[Union[String, SP]] = [_string('abc'), SP(hpos=767, vpos=133, width=9), _string('def')]
+    return TextLine(id="line_2", hpos=712, vpos=129, width=235, height=21, strings=strings)
+
+
+def _text_block() -> TextBlock:
+    return TextBlock("block_1", 53, 235, 712, 129, [_text_line(), _text_line()])
+
+
+def _composed_blocks() -> ComposedBlock:
+    return ComposedBlock("composed_block_1", 53, 235, 712, 129, [_text_block(), _text_block()])
 
 
 def test_extract_unique_child_name_to_child():
@@ -249,24 +269,9 @@ def test_build_text_line():
     assert TextLine.from_xml(element) == TextLine(id="line_2", hpos=712, vpos=129, width=235, height=21, strings=[])
 
 
-def test_text_line_extract_strings():
-    strings = [
-        String(
-            id="string_3",
-            hpos=712,
-            vpos=133,
-            width=55,
-            height=13,
-            confidence=0.92,
-            content="ABC",
-            alternatives=[],
-        ),
-        SP(hpos=767, vpos=133, width=9),
-    ]
-    line = TextLine(id="line_2", hpos=712, vpos=129, width=235, height=21, strings=strings)
-    assert line.extract_strings() == ["ABC"]
-
-    assert TextLine(id="line_2", hpos=712, vpos=129, width=235, height=21, strings=[]).extract_strings() == []
+def test_text_line_extract_words():
+    assert _text_line().extract_words() == ['abc', 'def']
+    assert TextLine(id="line_2", hpos=712, vpos=129, width=235, height=21, strings=[]).extract_words() == []
 
 
 def test_build_text_block():
@@ -297,22 +302,12 @@ def test_build_text_block():
     assert TextBlock.from_xml(element) == TextBlock("block_1", 53, 235, 712, 129, lines)
 
 
-def test_text_line_extract_strings_lines():
-    strings = [
-        String(
-            id="string_3",
-            hpos=712,
-            vpos=133,
-            width=55,
-            height=13,
-            confidence=0.92,
-            content="abc",
-            alternatives=[],
-        ),
-        SP(hpos=767, vpos=133, width=9),
-    ]
-    lines = [TextLine(id="line_2", hpos=712, vpos=129, width=235, height=21, strings=strings)]
-    assert TextBlock("block_1", 53, 235, 712, 129, lines).extract_string_lines() == ["abc"]
+def test_text_block_extract_strings_lines():
+    assert _text_block().extract_string_lines() == ['abc def', 'abc def']
+
+
+def test_text_block_extract_words():
+    assert _text_block().extract_words() == ['abc', 'def', 'abc', 'def']
 
 
 def test_build_composed_block():
@@ -326,6 +321,10 @@ def test_build_composed_block():
     )
     blocks = [TextBlock("block_1", 53, 235, 712, 129, [])]
     assert ComposedBlock.from_xml(element) == ComposedBlock("cblock_1", 53, 235, 712, 129, blocks)
+
+
+def test_composed_block_extract_words():
+    assert _composed_blocks().extract_words() == ['abc', 'def', 'abc', 'def', 'abc', 'def', 'abc', 'def']
 
 
 def test_build_print_space():
@@ -417,3 +416,18 @@ def test_alto_from_str():
 def test_alto_extract_words():
     res = Alto.parse_file(_get_test_data_file())
     assert res.extract_words()[:3] == ["7", "EJ", "."]
+
+
+def test_alto_extract_grouped_words():
+    res = Alto.parse_file(_get_test_data_file())
+    assert res.extract_grouped_words('TextBlock')[:2] == [
+        ['7', 'EJ', '.'],
+        ['Liberté', '<', 'Égalité', '«', 'Fraternité', 'RÉPUBLIQUE', 'FRANÇAISE'],
+    ]
+
+    assert res.extract_grouped_words('ComposedBlock')[:2] == [
+        ['7', 'EJ', '.'],
+        ['Liberté', '<', 'Égalité', '«', 'Fraternité', 'RÉPUBLIQUE', 'FRANÇAISE'],
+    ]
+
+    assert res.extract_grouped_words('TextLine')[:2] == [['7'], ['EJ', '.']]

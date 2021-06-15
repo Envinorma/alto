@@ -20,7 +20,9 @@ test_requirements = [
     "pytest>=5.4.3",
     "pytest-cov>=2.9.0",
     "pytest-raises>=0.11",
+    "pytest-mypy>=0.8.0",
     "isort>=5.7.0",
+    "mypy>=0.800",
 ]
 
 dev_requirements = [
@@ -38,7 +40,7 @@ dev_requirements = [
     "wheel>=0.34.2",
 ]
 
-requirements = []
+requirements = ['typing-extensions>=3.10.0.0']
 
 extra_requirements = {
     "setup": setup_requirements,
@@ -79,6 +81,6 @@ setup(
     url="https://github.com/envinorma/alto",
     # Do not edit this string manually, always use bumpversion
     # Details in CONTRIBUTING.rst
-    version="0.0.3",
+    version="0.0.4",
     zip_safe=False,
 )
